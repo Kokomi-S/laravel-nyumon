@@ -11,6 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('diaries', function (Blueprint $table) {
+            $table->id();
+            $table->date('date');
+            $table->string('title');
+            $table->text('body');
+            $table->timestamps();
+        });
+
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
