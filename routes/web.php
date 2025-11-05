@@ -18,3 +18,9 @@ Route::get('/diary/create', [DiaryController::class, 'create'])->name('diary.cre
 
 // 日記単体ページ
 Route::get('/diary/{id}',[DiaryController::class, 'show'])->name('diary.show');
+
+// 日記編集画面
+Route::get('/diary/{id}/edit', [DiaryController::class, 'edit'])->name('diary.edit');
+
+// 日記更新処理
+Route::patch('/diary/{id}', [DiaryController::class, 'update'])->name('diary.update');
