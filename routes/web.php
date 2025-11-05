@@ -24,3 +24,6 @@ Route::get('/diary/{id}/edit', [DiaryController::class, 'edit'])->name('diary.ed
 
 // 日記更新処理
 Route::patch('/diary/{id}', [DiaryController::class, 'update'])->name('diary.update');
+
+// 日記削除処理
+Route::delete('/diary/{id}', [DiaryController::class, 'destroy'])->name('diary.destroy');

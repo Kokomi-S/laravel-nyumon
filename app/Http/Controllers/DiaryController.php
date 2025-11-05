@@ -72,4 +72,13 @@ class DiaryController extends Controller
         // 更新完了メッセージを持たせて編集画面にリダイレクトする
         return back()->with('message', '更新しました');
     }
+
+    // 日記削除処理
+    public function destroy($id) {
+        $diary = Diary::findOrFail($id);
+        $diary->delete();
+        return redirect()
+            ->route('diary.index')
+            ->with('message', '日記を削除しました');
+    }
 }
