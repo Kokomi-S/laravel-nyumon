@@ -7,15 +7,18 @@ use App\Models\Diary;
 
 class DiaryController extends Controller
 {
+    // 日記一覧表示
     public function index() {
         $diaries = Diary::all(); 
         return view('diary.index', compact('diaries'));
     }
 
+    // 日記作成フォーム表示
     public function create() {
         return view('diary.create');
     }
 
+    // 日記保存処理
     public function save(Request $request) {
 
         // バリデーションルールを指定して入力値を精査する
@@ -38,5 +41,11 @@ class DiaryController extends Controller
         $diary->save();
 
         return redirect()->route('diary.create');
+    }
+
+    // 日記詳細表示
+    public function show($id) {
+        $diary = Diary::findOrFail($id);
+        return view('diary.show', compact('diary'));
     }
 }

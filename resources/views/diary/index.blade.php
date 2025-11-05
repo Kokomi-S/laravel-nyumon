@@ -1,6 +1,6 @@
+@foreach ($diaries as $diary)
 <div>
-    @foreach ($diaries as $diary)
-        <div>{{ $diary->date }}</div>
-        <div>{{ $diary->title }}</div>
-    @endforeach
+    <a href="{{ route('diary.show', $diary) }}">{{ $diary->title }}</a>
+    <a href="{{ route('diary.show', $diary) }}">{{ $diary->date }}</a>
 </div>
+@endforeach
